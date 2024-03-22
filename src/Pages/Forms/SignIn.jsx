@@ -1,38 +1,61 @@
-import { Link,} from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import SocialLogin from "./SocialLogin";
 
-import sidePhoto from "../../assets/img/typeing.jpg"
-import { useRef } from "react";
+import { useState } from "react";
+import authApi from "../../api/authApi";
+import sidePhoto from "../../assets/img/typeing.jpg";
+import useAuth from "../../hooks/useAuth";
 
 const SignIn = () => {
+    const navigate = useNavigate();
+    const { handleLoginSuccess } = useAuth();
 
-    const emailRef = useRef()
+    const [identifier, setIdentifier] = useState();
+    const [password, setPassword] = useState();
+
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+        try {
+            const response = await authApi.login({ identifier, password }, {
+                withCredentials: true
+            });
+            
+            if (response?.data?.success) {
+                handleLoginSuccess({ accessToken: response?.data?.data.accessToken });
+                navigate('/');
+            } else {
+                console.error('Login failed');
+            }
+        } catch (error) {
+            console.error(error);
+        }
+    }
 
     return (
         <div className="">
             <div className="container mx-auto min-h-screen py-9 px-[10%]">
                 <div className=" flex flex-col md:flex-row  justify-between items-center">
                     <div className=" hidden md:block  w-full md:w-2/4 pr-12" >
-                        <img className="  lg:ml-[10%] " src={sidePhoto} alt="" />
+                        <img className="  lg:ml-[10%] " src={sidePhoto} alt="thumb" />
                     </div>
                     <div className=" w-full md:w-2/4 p-12 rounded-md border">
                         <h1 className="text-4xl font-bold py-6 text-center">Login now!</h1>
 
-                        <form  className=" space-y-3">
+                        <form className="space-y-3" onSubmit={handleSubmit}>
                             <div className="form-control">
                                 <label className="label font-bold">
-                                    <span className="label-text">Name</span>
+                                    <span className="label-text">Email or UserName:</span>
                                 </label>
-                                <input type="email"  placeholder="email" name="email" ref={emailRef}className="input input-bordered" required />
+                                <input type="text" placeholder="Email or UserName" name="text" className="input input-bordered" required onChange={(e) => setIdentifier(e.target.value)} />
                             </div>
 
                             <div className="form-control">
                                 <label className="label font-bold">
-                                    <span className="label-text">Password</span>
+                                    <span className="label-text">Password:</span>
                                 </label>
-                                <input type="password" placeholder="password" name="password" className="input input-bordered" required />
+                                <input type="password" placeholder="password" name="password" className="input input-bordered" required onChange={(e) => setPassword(e.target.value)} />
                                 <label className="label">
-                                    <p  className="label-text-alt link link-hover">Forgot password?</p>
+                                    <p className="label-text-alt link link-hover">Forgot password?</p>
                                 </label>
                             </div>
 
