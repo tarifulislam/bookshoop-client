@@ -69,7 +69,7 @@ const SignUp = () => {
 
                                 </div>
                             </div>
-                            <div className="grid grid-cols-2 gap-4 pb-4">
+                            <div className="grid grid-cols-2 gap-4">
                                 <div className="form-control">
                                     <label className="label font-bold">
                                         <span className="label-text">First Name <small className="text-red-500">*</small></span>
