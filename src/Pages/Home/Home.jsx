@@ -4,9 +4,9 @@ import Features from "../../components/Features/Features";
 import Newleter from "../../components/Newleter/Newleter";
 import ReleseBooks from "../../components/ReleseBooks/ReleseBooks";
 import Testomonial from "../../components/Testomonial/Testomonial";
-import HeroSections from './../../components/HeroSections/HeroSections';
-import Faq from './../../components/Faq/Faq';
 import Article from './../../components/Article/Article';
+import Faq from './../../components/Faq/Faq';
+import HeroSections from './../../components/HeroSections/HeroSections';
 
 const Home = () => {
     return (
@@ -20,7 +20,6 @@ const Home = () => {
             <HeroSections></HeroSections>
             <Faq></Faq>
             <Article></Article>
-        
         </div>
 
     );

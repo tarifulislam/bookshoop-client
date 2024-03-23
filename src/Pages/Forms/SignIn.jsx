@@ -2,6 +2,7 @@ import { Link, useNavigate } from "react-router-dom";
 import SocialLogin from "./SocialLogin";
 
 import { useState } from "react";
+import toast, { Toaster } from "react-hot-toast";
 import authApi from "../../api/authApi";
 import sidePhoto from "../../assets/img/typeing.jpg";
 import useAuth from "../../hooks/useAuth";
@@ -23,6 +24,7 @@ const SignIn = () => {
             if (response?.data?.success) {
                 handleLoginSuccess({ accessToken: response?.data?.data.accessToken });
                 navigate('/');
+                toast.success('User login successfull!');
             } else {
                 console.error('Login failed');
             }
@@ -33,6 +35,10 @@ const SignIn = () => {
 
     return (
         <div className="">
+             <Toaster
+                position="bottom-right"
+                reverseOrder={false}
+            />
             <div className="container mx-auto min-h-screen py-9 px-[10%]">
                 <div className=" flex flex-col md:flex-row  justify-between items-center">
                     <div className=" hidden md:block  w-full md:w-2/4 pr-12" >
@@ -65,7 +71,7 @@ const SignIn = () => {
                         </form>
                         <SocialLogin></SocialLogin>
                         <h4 className=" py-3 font-semibold text-base">create an account?  <Link to='/signup' className=" text-red-600 px-1">Sign Up</Link> </h4>
-
+                        
                     </div>
                 </div>
             </div>

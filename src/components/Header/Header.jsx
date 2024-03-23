@@ -1,28 +1,57 @@
 import { FaBlogger, FaFacebookF, FaInstagram, FaLinkedin, FaPhoneSquareAlt, FaSearch, } from "react-icons/fa";
 import { VscAccount } from "react-icons/vsc";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 import { MdOutlineFavoriteBorder } from "react-icons/md";
 import { RiShoppingBagLine } from "react-icons/ri";
 
+
+import toast, { Toaster } from "react-hot-toast";
 import logo from '../../assets/img/avater.png';
 import useAuth from "../../hooks/useAuth";
 
-
 const Header = () => {
-    const { userInfo } = useAuth();
-    console.log(userInfo);
+    const { userDetails, isLoggedIn, handleLogout } = useAuth();
+
+    const handleLogoutButton = () => {
+        handleLogout();
+        toast.success('User logout successfull!');
+    }
     const navLinks = <>
         <NavLink className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "  pb-1 border-b  border-blue-500  font-semibold" : ""} to="/">HOME</NavLink>
         <NavLink className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "  pb-1 border-b  border-blue-500  font-semibold" : ""} to="/about">ABOUT US</NavLink>
         <NavLink className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "  pb-1 border-b  border-blue-500  font-semibold" : ""} to="/books">BOOKS</NavLink>
         <NavLink className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "  pb-1 border-b  border-blue-500  font-semibold" : ""} to="/contract">CONTRACT US</NavLink>
         <NavLink className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "  pb-1 border-b  border-blue-500  font-semibold" : ""} to="/blog">BLOG</NavLink>
+        {
+            isLoggedIn ? (
+                <NavLink onClick={handleLogoutButton} to="/" >
+                    LOGOUT
+                </NavLink>
+            ) : (
+                <NavLink
+                    className={({ isActive, isPending }) =>
+                        isPending
+                            ? "pending"
+                            : isActive
+                                ? "pb-1 border-b border-blue-500 font-semibold"
+                                : ""
+                    }
+                    to="/signin"
+                >
+                    LOGIN
+                </NavLink>
+            )
+        }
+
     </>
 
     return (
-
         <div>
+            <Toaster
+                position="bottom-right"
+                reverseOrder={false}
+            />
             <div className="py-2  px-[2%]   hidden md:block">
                 <div className=" container mx-auto flex justify-between items-center font-semibold py-2 border-b">
                     <div className="flex items-center">
@@ -40,18 +69,30 @@ const Header = () => {
                 <div className="">
                     <div className=" container mx-auto">
                         <div className=" flex py-3 items-center">
-                            <div className="w-1/12">
-                                {/* <div className=" bg-green-500 w-14 h-14 rounded-full"></div> */}
-                                <img className=" w-12 h-12 rounded-full" src={logo} alt="" />
-                                <p>{userInfo.userName}</p>
+                            <div className="w-3/12 flex items-center">
+                                <div className="dropdown dropdown-bottom">
+                                    <div tabIndex={0} role="button" className="btn btn-ghost m-1">
+                                        <img className="w-12 h-12 rounded-full" src={userDetails ? userDetails?.information.profileImage : logo} alt="avatar" />
+                                        <Link to='/' className="ml-2 font-semibold">{userDetails ? `${userDetails.name.firstName} ${userDetails.name.lastName}` : ''}</Link>
+                                    </div>
+                                    {
+                                        isLoggedIn ? <>
+                                            <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
+                                                <li><a>Profile</a></li>
+                                                <li><a>Dashboard</a></li>
+                                                <li><a>Logout</a></li>
+                                            </ul>
+                                        </> : ""
+                                    }
+                                </div>
                             </div>
-                            <div className="w-7/12 ">
+                            <div className="w-6/12 ">
                                 <div className="w-3/4 relative">
                                     <input className=" bg-[#f5f1f1a4] outline-0 border-none px-4 py-2 w-full rounded-full" type="text" placeholder="Search books" />
                                     <span className=" absolute right-4 top-3 text-[#6a6a6a]"><FaSearch /></span>
                                 </div>
                             </div>
-                            <div className="w-4/12 flex justify-end space-x-3">
+                            <div className="w-3/12 flex justify-end space-x-3">
                                 <div className="flex items-center pr-2 border-r">
                                     <span><VscAccount /></span>
                                     <h2 className=" ml-2 font-semibold">ACCOUND</h2>
@@ -66,7 +107,6 @@ const Header = () => {
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>
