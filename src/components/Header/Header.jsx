@@ -112,7 +112,7 @@ const Header = () => {
                 </div>
             </div>
 
-            <div className="bg-[#173F5F]">
+            <div className="bg-success">
                 <div className="navbar md:text-white  container mx-auto  px-0">
                     <div className="navbar-start">
                         <div className="dropdown">
@@ -125,7 +125,7 @@ const Header = () => {
                         </div>
                     </div>
                     <div className="navbar-center hidden lg:flex">
-                        <ul className="menu menu-horizontal px-1 space-x-9">
+                        <ul className="menu menu-horizontal px-1 space-x-9 font-semibold">
                             {navLinks}
                         </ul>
                     </div>
