@@ -1,50 +1,32 @@
-import { createBrowserRouter } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
+import Layout from '../Layout/Layout';
 import Error from "../Pages/Error/Error";
-import Layout from './../Layout/Layout';
+import SignIn from "../Pages/Forms/SignIn";
+import Profile from "../components/Profile/Profile";
 import About from './../Pages/About/About';
 import Blog from './../Pages/Blog/Blog';
 import Books from './../Pages/Books/Books';
 import Contract from './../Pages/Contract/Contract';
-import SignIn from './../Pages/Forms/SignIn';
-import SignUp from './../Pages/Forms/SignUp';
 import Home from './../Pages/Home/Home';
+const AppRouter = () => {
 
-const myRouter = createBrowserRouter([
-  {
-    path: "/",
-    element:  <Layout></Layout>,
-    errorElement: <Error></Error>,
-    children: [
-      {
-        path: "/",
-        element: <Home></Home>
-      },
-      {
-        path: "/about",
-        element: <About></About>
-      },
-      {
-        path: "/books",
-        element: <Books></Books>
-      },
-      {
-        path: "/contract",
-        element: <Contract></Contract>
-      },
-      {
-        path: "/blog",
-        element: <Blog></Blog>
-      },
-      {
-        path: "/signin",
-        element: <SignIn></SignIn>
-      },
-      {
-        path: "/signup",
-        element: <SignUp></SignUp>
-      },
-    ]
-  },
-]);
+  return (
+    <Routes>
+      <Route
+        path="/"
+        element={<Layout />}
+      >
+        <Route path="/signin" element={<SignIn />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/books" element={<Books />} />
+        <Route path="/contract" element={<Contract />} />
+        <Route path="/blog" element={<Blog />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="*" element={<Error />} />
+      </Route>
+    </Routes>
+  );
+};
 
-export default myRouter;
+export default AppRouter;
