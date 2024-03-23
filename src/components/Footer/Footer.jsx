@@ -1,5 +1,5 @@
-import logo from "../../assets/img/logo.png"
-import {  FaFacebookF , FaInstagram,  FaBlogger , FaLinkedin  } from "react-icons/fa";
+import { FaBlogger, FaFacebookF, FaInstagram, FaLinkedin } from "react-icons/fa";
+import logo from "../../assets/img/logo.png";
 const Footer = () => {
     return (
         <div>

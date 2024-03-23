@@ -19,14 +19,14 @@ const Header = () => {
         toast.success('User logout successfull!');
     }
     const navLinks = <>
-        <NavLink className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "  pb-1 border-b  border-blue-500  font-semibold" : ""} to="/">HOME</NavLink>
-        <NavLink className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "  pb-1 border-b  border-blue-500  font-semibold" : ""} to="/about">ABOUT US</NavLink>
-        <NavLink className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "  pb-1 border-b  border-blue-500  font-semibold" : ""} to="/books">BOOKS</NavLink>
-        <NavLink className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "  pb-1 border-b  border-blue-500  font-semibold" : ""} to="/contract">CONTRACT US</NavLink>
-        <NavLink className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "  pb-1 border-b  border-blue-500  font-semibold" : ""} to="/blog">BLOG</NavLink>
+        <NavLink className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "  pb-1 border-b  border-white  font-semibold" : ""} to="/">HOME</NavLink>
+        <NavLink className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "  pb-1 border-b  border-white  font-semibold" : ""} to="/about">ABOUT US</NavLink>
+        <NavLink className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "  pb-1 border-b  border-white  font-semibold" : ""} to="/books">BOOKS</NavLink>
+        <NavLink className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "  pb-1 border-b  border-white  font-semibold" : ""} to="/contract">CONTRACT US</NavLink>
+        <NavLink className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "  pb-1 border-b  border-white  font-semibold" : ""} to="/blog">BLOG</NavLink>
         {
             isLoggedIn ? (
-                <button type="button" onClick={handleLogoutButton} >
+                <button type="button" onClick={handleLogoutButton} className="border-b  border-transparent">
                     LOGOUT
                 </button>
             ) : (
@@ -35,7 +35,7 @@ const Header = () => {
                         isPending
                             ? "pending"
                             : isActive
-                                ? "pb-1 border-b border-blue-500 font-semibold"
+                                ? "pb-1 border-b border-transparent font-semibold"
                                 : ""
                     }
                     to="/signin"
@@ -112,7 +112,7 @@ const Header = () => {
                 </div>
             </div>
 
-            <div className="bg-[#173F5F]">
+            <div className="bg-success">
                 <div className="navbar md:text-white  container mx-auto  px-0">
                     <div className="navbar-start">
                         <div className="dropdown">
@@ -125,7 +125,7 @@ const Header = () => {
                         </div>
                     </div>
                     <div className="navbar-center hidden lg:flex">
-                        <ul className="menu menu-horizontal px-1 space-x-9">
+                        <ul className="menu menu-horizontal px-1 space-x-9 font-semibold">
                             {navLinks}
                         </ul>
                     </div>

@@ -1,51 +1,183 @@
 import { useState } from "react";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import sidePhoto from "../../assets/img/typeing.jpg"
 import SocialLogin from "./SocialLogin";
 
 const SignUp = () => {
 
-    const [toogle, setToogle] = useState(true)
+    const [formData, setFormData] = useState({});
+    const [passwordError, setPasswordError] = useState("");
+    const [showPassword, setShowPassword] = useState(false);
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormData({
+            ...formData,
+            [name]: value
+        });
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        if (formData.password !== formData.confirmPassword) {
+            setPasswordError("Passwords do not match");
+        } else {
+            // Passwords match, proceed with form submission
+            // You can send formData to your API endpoint here
+            console.log("Form submitted:", formData);
+            // Clear password error
+            setPasswordError("");
+        }
+    };
+
     return (
         <div className="">
             <div className="container mx-auto min-h-screen py-9 px-[10%]">
                 <div className=" flex flex-col md:flex-row  justify-between items-center">
-                    <div className="w-full  md:w-2/4  hidden md:block  pr-12">
-                        <img className="  hidden md:block  ml-[10%] " src={sidePhoto} alt="" />
-                    </div>
+                    <div className="w-full md:w-3/4 p-12 rounded-md border mx-auto">
+                        <h1 className="text-4xl font-bold py-6 text-center">Sign Up</h1>
 
-                    <div className="w-full md:w-2/4 p-12 rounded-md border">
-                        <h1 className="text-4xl font-bold py-6 text-center">Sign In</h1>
-
-                        <form  className=" space-y-3">
+                        <form className=" space-y-3" onSubmit={handleSubmit}>
                             <div className="form-control">
                                 <label className="label font-bold">
-                                    <span className="label-text">Name</span>
+                                    <span className="label-text">Select Role<small className="text-red-500">*</small></span>
                                 </label>
-                                <input type="text" placeholder="name" name="name" className="input input-bordered" required />
+                                <div className="join gap-4">
+                                    <div className="form-control">
+                                        <label className="label font-bold">
+                                            <span className="label-text">Customer</span>
+                                        </label>
+                                        <div className="text-center">
+                                            <input type="radio" name="role" className="radio radio-success" aria-label="Seller" required />
+                                        </div>
+                                    </div>
+                                    <div className="form-control">
+                                        <label className="label font-bold">
+                                            <span className="label-text">Seller</span>
+                                        </label>
+                                        <div className="text-center">
+                                            <input type="radio" name="role" className="radio radio-success" aria-label="Seller" required />
+                                        </div>
+                                    </div>
+                                    <div className="form-control">
+                                        <label className="label font-bold">
+                                            <span className="label-text">Donar</span>
+                                        </label>
+                                        <div className="text-center">
+                                            <input type="radio" name="role" className="radio radio-success" aria-label="Seller" required />
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div className="grid grid-cols-2 gap-4">
+                                <div className="form-control">
+                                    <label className="label font-bold">
+                                        <span className="label-text">First Name <small className="text-red-500">*</small></span>
+                                    </label>
+                                    <input type="text" placeholder="First Name" name="name" className="input input-bordered" required />
+                                </div>
+                                <div className="form-control">
+                                    <label className="label font-bold">
+                                        <span className="label-text">Last Name</span>
+                                    </label>
+                                    <input type="text" placeholder="Last Name" name="lastName" className="input input-bordered" />
+                                </div>
                             </div>
                             <div className="form-control">
                                 <label className="label font-bold">
-                                    <span className="label-text">Email</span>
+                                    <span className="label-text">User Name <small className="text-red-500">*</small></span>
+                                </label>
+                                <input type="text" placeholder="User Name" name="lastName" className="input input-bordered" required />
+                            </div>
+                            <div className="form-control">
+                                <label className="label font-bold">
+                                    <span className="label-text">Email <small className="text-red-500">*</small></span>
                                 </label>
                                 <input type="email" placeholder="email" name="email" className="input input-bordered" required />
                             </div>
-                            <div className="">
-                                <label className="label font-bold">
-                                    <span className="label-text">Password</span>
-                                </label>
-                                <div className=" relative form-control">
-                                   <input type={toogle ? "password" : "text"} placeholder="password" name="password" className="input input-bordered " required />
-                                   <button className=" absolute  right-4 top-3" onClick={()=> setToogle(!toogle)}>{toogle? "show" : "hide"}</button>
+                            <div className="grid grid-cols-2 gap-4">
+                                <div className="form-control">
+                                    <label className="label font-bold">
+                                        <span className="label-text">Password <small className="text-red-500">*</small></span>
+                                    </label>
+                                    <div className="relative">
+                                        <input
+                                            type={showPassword ? "text" : "password"}
+                                            placeholder="Password"
+                                            name="password"
+                                            value={formData.password}
+                                            onChange={handleChange}
+                                            className="input input-bordered w-full"
+                                            required
+                                        />
+                                        <button
+                                            type="button"
+                                            className="absolute inset-y-0 right-0 px-3 py-2"
+                                            onClick={() => setShowPassword(!showPassword)}
+                                        >
+                                            {showPassword ? <FaEyeSlash /> : <FaEye />}
+                                        </button>
+                                    </div>
                                 </div>
-                          
-                                
-                                <label className="label">
-                                    <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
-                                </label>
+
+                                <div className="form-control">
+                                    <label className="label font-bold">
+                                        <span className="label-text">Confirm Password <small className="text-red-500">*</small></span>
+                                    </label>
+                                    <input
+                                        type="password"
+                                        placeholder="Confirm Password"
+                                        name="confirmPassword"
+                                        value={formData.confirmPassword}
+                                        onChange={handleChange}
+                                        className="input input-bordered"
+                                        required
+                                    />
+                                    {passwordError && <p className="text-red-500">{passwordError}</p>}
+                                </div>
                             </div>
+                            <div className="form-control">
+                                <label className="label font-bold">
+                                    <span className="label-text">Phone</span>
+                                </label>
+                                <input type="text" placeholder="Last Name" name="lastName" className="input input-bordered" />
+                            </div>
+                            <div className="form-control">
+                                <label className="label font-bold">
+                                    <span className="label-text">Profile Image</span>
+                                </label>
+                                <input type="text" placeholder="Profile Image Url" name="profileImage" className="input input-bordered" />
+                            </div>
+
+                            <div className="form-control">
+                                <label className="label font-bold">
+                                    <span className="label-text">Bio</span>
+                                </label>
+                                <textarea className="textarea textarea-bordered" placeholder="Bio"></textarea>
+                            </div>
+                            <div className="form-control">
+                                <label className="label font-bold">
+                                    <span className="label-text">Address</span>
+                                </label>
+                                <input type="text" placeholder="123 Main St" name="address" className="input input-bordered" />
+                            </div>
+                            <div className="grid grid-cols-2 gap-4 pb-4">
+                                <div className="form-control">
+                                    <label className="label font-bold">
+                                        <span className="label-text">City</span>
+                                    </label>
+                                    <input type="text" placeholder="Dhaka" name="city" className="input input-bordered" />
+                                </div>
+                                <div className="form-control">
+                                    <label className="label font-bold">
+                                        <span className="label-text">Zip Code</span>
+                                    </label>
+                                    <input type="text" placeholder="1204" name="zipCode" className="input input-bordered" />
+                                </div>
+                            </div>
+
                             <div className="form-control mt-6">
-                                <button type="submit" className="btn btn-secondary">Sign in</button>
+                                <button type="submit" className="btn btn-success text-white">Sign in</button>
                             </div>
                         </form>
                         <SocialLogin></SocialLogin>
