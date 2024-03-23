@@ -29,19 +29,24 @@ const AuthProvider = ({ children }) => {
 
   const handleLoginSuccess = useCallback(({ accessToken }) => {
     try {
-        setIsLoggedIn(true);
-        setToLocalStorage(authKey, accessToken);
-        fetchUserInfo(accessToken);
+      setIsLoggedIn(true);
+      setToLocalStorage(authKey, accessToken);
+      fetchUserInfo(accessToken);
     } catch (error) {
-        console.error(error);
+      console.error(error);
     }
-}, [fetchUserInfo]);
+  }, [fetchUserInfo]);
 
   const handleLogout = useCallback(async () => {
-    await logoutRequest();
-    setIsLoggedIn(false);
-    removeUserInfo(authKey);
-    setUserInfo(null);
+    try {
+      await logoutRequest();
+      setIsLoggedIn(false);
+      removeUserInfo(authKey);
+      setUserInfo(null);
+      setUserDetails(null);
+    } catch (error) {
+      console.error("Logout error:", error);
+    }
   }, []);
 
   useEffect(() => {
@@ -62,7 +67,7 @@ const AuthProvider = ({ children }) => {
     userInfo,
     setUserInfo,
     userDetails
-}), [handleLoginSuccess, handleLogout, isLoggedIn, userInfo, userDetails]);
+  }), [handleLoginSuccess, handleLogout, isLoggedIn, userInfo, userDetails]);
 
   return (
     <AuthContext.Provider value={authContextValue}>

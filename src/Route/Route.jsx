@@ -2,6 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import Layout from '../Layout/Layout';
 import Error from "../Pages/Error/Error";
 import SignIn from "../Pages/Forms/SignIn";
+import SignUp from "../Pages/Forms/SignUp";
 import Profile from "../components/Profile/Profile";
 import About from './../Pages/About/About';
 import Blog from './../Pages/Blog/Blog';
@@ -17,6 +18,7 @@ const AppRouter = () => {
         element={<Layout />}
       >
         <Route path="/signin" element={<SignIn />} />
+        <Route path="/signup" element={<SignUp />} />
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/books" element={<Books />} />

@@ -1,6 +1,6 @@
 import { FaBlogger, FaFacebookF, FaInstagram, FaLinkedin, FaPhoneSquareAlt, FaSearch, } from "react-icons/fa";
 import { VscAccount } from "react-icons/vsc";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 
 import { MdOutlineFavoriteBorder } from "react-icons/md";
 import { RiShoppingBagLine } from "react-icons/ri";
@@ -12,9 +12,10 @@ import useAuth from "../../hooks/useAuth";
 
 const Header = () => {
     const { userDetails, isLoggedIn, handleLogout } = useAuth();
-
+    const navigate = useNavigate()
     const handleLogoutButton = () => {
         handleLogout();
+        navigate('/signin');
         toast.success('User logout successfull!');
     }
     const navLinks = <>
@@ -25,9 +26,9 @@ const Header = () => {
         <NavLink className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "  pb-1 border-b  border-blue-500  font-semibold" : ""} to="/blog">BLOG</NavLink>
         {
             isLoggedIn ? (
-                <NavLink onClick={handleLogoutButton} to="/" >
+                <button type="button" onClick={handleLogoutButton} >
                     LOGOUT
-                </NavLink>
+                </button>
             ) : (
                 <NavLink
                     className={({ isActive, isPending }) =>
@@ -73,14 +74,14 @@ const Header = () => {
                                 <div className="dropdown dropdown-bottom">
                                     <div tabIndex={0} role="button" className="btn btn-ghost m-1">
                                         <img className="w-12 h-12 rounded-full" src={userDetails ? userDetails?.information.profileImage : logo} alt="avatar" />
-                                        <Link to='/' className="ml-2 font-semibold">{userDetails ? `${userDetails.name.firstName} ${userDetails.name.lastName}` : ''}</Link>
+                                        <p className="ml-2 font-semibold capitalize">{userDetails ? `${userDetails.name.firstName} ${userDetails.name.lastName}` : ''}</p>
                                     </div>
                                     {
                                         isLoggedIn ? <>
                                             <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
-                                                <li><a>Profile</a></li>
-                                                <li><a>Dashboard</a></li>
-                                                <li><a>Logout</a></li>
+                                                <li><Link to="/profile">Profile</Link></li>
+                                                <li><Link to="/dashboard">Dashboard</Link></li>
+                                                <li><button type="button" onClick={handleLogoutButton}>Logout</button></li>
                                             </ul>
                                         </> : ""
                                     }
