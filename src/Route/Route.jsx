@@ -1,5 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import Layout from '../Layout/Layout';
+import BookSingle from "../Pages/BookSingle/BookSingle";
 import Error from "../Pages/Error/Error";
 import SignIn from "../Pages/Forms/SignIn";
 import SignUp from "../Pages/Forms/SignUp";
@@ -22,6 +23,7 @@ const AppRouter = () => {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/books" element={<Books />} />
+        <Route path="/books/:id" element={<BookSingle />} />
         <Route path="/contract" element={<Contract />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/profile" element={<Profile />} />

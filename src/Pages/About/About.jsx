@@ -77,7 +77,7 @@ const About = () => {
                     <div className="card card-side bg-base-100 shadow-xl">
                         <figure className="max-w-60 w-full h-full"><img className="w-full h-full" src="https://i.ibb.co/CzffRwC/Whats-App-Image-2024-03-24-at-05-27-27-843f54ae.jpg" alt="Movie" /></figure>
                         <div className="card-body">
-                            <h2 className="card-title">Nishad Baba</h2>
+                            <h2 className="card-title">Rejouanul Kabir</h2>
                             <p>Click the button to watch on Jetflix app.</p>
                             <div className="card-actions justify-end">
                                 <button className="btn ">View Profile</button>
@@ -85,7 +85,7 @@ const About = () => {
                         </div>
                     </div>
                     <div className="card card-side bg-base-100 shadow-xl">
-                        <figure className="max-w-60 w-full h-full"><img className="w-full h-full" src="https://i.ibb.co/p6HBLPf/avater.png" alt="Movie" /></figure>
+                        <figure className="max-w-60 w-full h-full"><img className="w-full h-full" src="https://i.ibb.co/vZ9jrfX/Whats-App-Image-2024-03-24-at-11-13-05-7c736ecc.jpg" alt="Movie" /></figure>
                         <div className="card-body">
                             <h2 className="card-title">Prity Rose</h2>
                             <p>Click the button to watch on Jetflix app.</p>
