@@ -8,6 +8,11 @@ import Blog from './../Pages/Blog/Blog';
 import Books from './../Pages/Books/Books';
 import Contract from './../Pages/Contract/Contract';
 import Home from './../Pages/Home/Home';
+import DashHome from "../Dashboard/Pages/DashHome/DashHome";
+import DashProducts from "../Dashboard/Pages/DashProducts/DashProducts";
+import DashUsers from "../Dashboard/Pages/DashUsers/DashUsers";
+import DashLayout from "../Dashboard/DashLayout/DashLayout";
+
 const AppRouter = () => {
 
   return (
@@ -16,6 +21,12 @@ const AppRouter = () => {
         path="/"
         element={<Layout />}
       >
+        <Route  element={<DashLayout />}>
+          <Route path="/dashboard" element={<DashHome />} />
+          <Route path="/dashproducts" element={<DashProducts />} />
+          <Route path="/dashusers" element={<DashUsers />} />
+        </Route> 
+
         <Route path="/signin" element={<SignIn />} />
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
