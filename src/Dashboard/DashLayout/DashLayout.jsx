@@ -8,7 +8,7 @@ const DashLayout = () => {
         <div>
             <DashNavber></DashNavber> 
             <div className="flex w-full">
-                <div className=" w-2/12  border-r  border-[#6a6a6a]   bg-[#262E3B] text-white px-[1%]">
+                <div className=" w-2/12  border-r  border-[#6a6a6a]   bg-[#262e3bf3] text-white px-[1%]">
                     <DashMenu></DashMenu>
                 </div>
                 <div className="w-10/12 ">

@@ -15,7 +15,7 @@ const DashHome = () => {
                 </div>
                 <div className='p-4 border border-[#6a6a6a]  bg-white  rounded-md '> <DashChartBox ></DashChartBox></div>
                 <div className='p-4 border border-[#6a6a6a]  bg-white  rounded-md'> <DashChartBox></DashChartBox></div>
-                <div className='p-4 border border-[#6a6a6a]  bg-white  rounded-md col-span-1 row-span-3'>
+                <div className='p-4 border border-[#6a6a6a]  bg-white  rounded-md col-span-1 row-span-4'>
                     <DashPicChartBox></DashPicChartBox>
                 </div>
                 <div className='p-4 border border-[#6a6a6a]  bg-white  rounded-md'> <DashChartBox></DashChartBox></div>
@@ -27,9 +27,9 @@ const DashHome = () => {
                 <div className='p-4 border border-[#6a6a6a]  bg-white  rounded-md'> 
                    <DashBarChart></DashBarChart>
                 </div>
-                <div className='p-4 border border-[#6a6a6a]  bg-white  rounded-md'>
+                {/* <div className='p-4 border border-[#6a6a6a]  bg-white  rounded-md'>
                 <DashBarChart></DashBarChart>
-                </div>
+                </div> */}
             </div>
         </div>
     );
