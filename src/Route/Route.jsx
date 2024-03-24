@@ -12,6 +12,8 @@ import DashHome from "../Dashboard/Pages/DashHome/DashHome";
 import DashProducts from "../Dashboard/Pages/DashProducts/DashProducts";
 import DashUsers from "../Dashboard/Pages/DashUsers/DashUsers";
 import DashLayout from "../Dashboard/DashLayout/DashLayout";
+import DashAddProduct from "../Dashboard/Pages/DashAddProduct/DashAddProduct";
+import SignUp from "../Pages/Forms/SignUp";
 
 const AppRouter = () => {
 
@@ -25,9 +27,10 @@ const AppRouter = () => {
           <Route path="/dashboard" element={<DashHome />} />
           <Route path="/dashproducts" element={<DashProducts />} />
           <Route path="/dashusers" element={<DashUsers />} />
+          <Route path="/dashaddproduct" element={<DashAddProduct />} />
         </Route> 
-
         <Route path="/signin" element={<SignIn />} />
+        <Route path="/signup" element={<SignUp />} />
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/books" element={<Books />} />

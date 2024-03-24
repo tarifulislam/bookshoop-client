@@ -6,7 +6,7 @@ const DashMenu = () => {
         <div className=" space-y-6 min-h-screen">
             <div className="">
                 <span>Main</span>
-                <Link to='/' className="  flex gap-3 items-center p-2">
+                <Link to='/dashboard' className="  flex gap-3 items-center p-2">
                     <span><FaHome /></span>
                     <span>Home</span>
                 </Link>
@@ -23,7 +23,7 @@ const DashMenu = () => {
                     <span>User</span>
                 </Link>
 
-                <Link className="  flex gap-3 items-center p-2">
+                <Link to='/dashaddproduct' className="  flex gap-3 items-center p-2">
                     <span><FaRegUser /></span>
                     <span>Product</span>
                 </Link>
