@@ -66,7 +66,7 @@ const SignIn = () => {
                             </div>
 
                             <div className="form-control mt-6">
-                                <button type="submit" className="btn btn-secondary">Login</button>
+                                <button type="submit" className="btn btn-success text-white">Login</button>
                             </div>
                         </form>
                         <SocialLogin></SocialLogin>

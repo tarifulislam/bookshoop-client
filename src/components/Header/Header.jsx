@@ -1,6 +1,6 @@
 import { FaBlogger, FaFacebookF, FaInstagram, FaLinkedin, FaPhoneSquareAlt, FaSearch, } from "react-icons/fa";
 import { VscAccount } from "react-icons/vsc";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 
 import { MdOutlineFavoriteBorder } from "react-icons/md";
 import { RiShoppingBagLine } from "react-icons/ri";
@@ -12,29 +12,30 @@ import useAuth from "../../hooks/useAuth";
 
 const Header = () => {
     const { userDetails, isLoggedIn, handleLogout } = useAuth();
-
+    const navigate = useNavigate()
     const handleLogoutButton = () => {
         handleLogout();
+        navigate('/signin');
         toast.success('User logout successfull!');
     }
     const navLinks = <>
-        <NavLink className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "  pb-1 border-b  border-blue-500  font-semibold" : ""} to="/">HOME</NavLink>
-        <NavLink className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "  pb-1 border-b  border-blue-500  font-semibold" : ""} to="/about">ABOUT US</NavLink>
-        <NavLink className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "  pb-1 border-b  border-blue-500  font-semibold" : ""} to="/books">BOOKS</NavLink>
-        <NavLink className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "  pb-1 border-b  border-blue-500  font-semibold" : ""} to="/contract">CONTRACT US</NavLink>
-        <NavLink className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "  pb-1 border-b  border-blue-500  font-semibold" : ""} to="/blog">BLOG</NavLink>
+        <NavLink className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "  pb-1 border-b  border-white  font-semibold" : ""} to="/">HOME</NavLink>
+        <NavLink className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "  pb-1 border-b  border-white  font-semibold" : ""} to="/about">ABOUT US</NavLink>
+        <NavLink className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "  pb-1 border-b  border-white  font-semibold" : ""} to="/books">BOOKS</NavLink>
+        <NavLink className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "  pb-1 border-b  border-white  font-semibold" : ""} to="/contract">CONTRACT US</NavLink>
+        <NavLink className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "  pb-1 border-b  border-white  font-semibold" : ""} to="/blog">BLOG</NavLink>
         {
             isLoggedIn ? (
-                <NavLink onClick={handleLogoutButton} to="/" >
+                <button type="button" onClick={handleLogoutButton} className="border-b  border-transparent font-semibold pb-1">
                     LOGOUT
-                </NavLink>
+                </button>
             ) : (
                 <NavLink
                     className={({ isActive, isPending }) =>
                         isPending
                             ? "pending"
                             : isActive
-                                ? "pb-1 border-b border-blue-500 font-semibold"
+                                ? "pb-1 border-b border-transparent font-semibold"
                                 : ""
                     }
                     to="/signin"
@@ -72,15 +73,15 @@ const Header = () => {
                             <div className="w-3/12 flex items-center">
                                 <div className="dropdown dropdown-bottom">
                                     <div tabIndex={0} role="button" className="btn btn-ghost m-1">
-                                        <img className="w-12 h-12 rounded-full" src={userDetails ? userDetails?.information?.profileImage : logo} alt="avatar" />
-                                        <Link to='/' className="ml-2 font-semibold">{userDetails ? `${userDetails?.name?.firstName} ${userDetails.name.lastName}` : ''}</Link>
+                                        <img className="w-12 h-12 rounded-full" src={userDetails ? userDetails?.profileImage : logo} alt="avatar" />
+                                        <Link to='/' className="ml-2 font-semibold">{userDetails ? `${userDetails?.firstName} ${userDetails?.lastName}` : ''}</Link>
                                     </div>
                                     {
                                         isLoggedIn ? <>
                                             <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
-                                                <li><a>Profile</a></li>
-                                                <li><a>Dashboard</a></li>
-                                                <li><a>Logout</a></li>
+                                                <li><Link to="/profile">Profile</Link></li>
+                                                <li><Link to="/dashboard">Dashboard</Link></li>
+                                                <li><button type="button" onClick={handleLogoutButton}>Logout</button></li>
                                             </ul>
                                         </> : ""
                                     }
@@ -111,7 +112,7 @@ const Header = () => {
                 </div>
             </div>
 
-            <div className="bg-[#173F5F]">
+            <div className="bg-success">
                 <div className="navbar md:text-white  container mx-auto  px-0">
                     <div className="navbar-start">
                         <div className="dropdown">
@@ -124,7 +125,7 @@ const Header = () => {
                         </div>
                     </div>
                     <div className="navbar-center hidden lg:flex">
-                        <ul className="menu menu-horizontal px-1 space-x-9">
+                        <ul className="menu menu-horizontal px-1 space-x-9 font-semibold">
                             {navLinks}
                         </ul>
                     </div>

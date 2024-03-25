@@ -1,7 +1,7 @@
-import './banner.css'
-import bannerImg from '../../assets/img/banner-img.png'
-import { IoEllipseOutline, IoEllipseSharp  } from "react-icons/io5";
 import { FaLongArrowAltRight } from "react-icons/fa";
+import { IoEllipseOutline, IoEllipseSharp } from "react-icons/io5";
+import bannerImg from '../../assets/img/banner-img.png';
+import './banner.css';
 
 
 const Banner = () => {
@@ -23,7 +23,7 @@ const Banner = () => {
                         </div>
                     </div>
                     <div className=' w-full md:w-4/12 order-1 md:order-2'>
-                        <img src={bannerImg} alt="" />
+                        <img src={bannerImg} alt="banner" />
                     </div>
                 </div>
             </div>

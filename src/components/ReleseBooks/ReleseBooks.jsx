@@ -8,7 +8,7 @@ const ReleseBooks = () => {
     useEffect(() => {
         const fetchBooks = async () => {
             try {
-                const response = await bookApi.getAllNewBooks();
+                const response = await bookApi.getAllBooks();
                 setBooks(response?.data?.data);
                 console.log(response);
             } catch (error) {
