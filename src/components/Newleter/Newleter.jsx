@@ -1,7 +1,8 @@
-import newsImg from './../../assets/img/newleter-img.png'
-import './newsleter.css'
 import { FaLongArrowAltRight } from "react-icons/fa";
-import { IoEllipseOutline, IoEllipseSharp  } from "react-icons/io5";
+import { IoEllipseOutline, IoEllipseSharp } from "react-icons/io5";
+import { Link } from 'react-router-dom';
+import newsImg from './../../assets/img/newleter-img.png';
+import './newsleter.css';
 
 const Newleter = () => {
     return (
@@ -12,7 +13,7 @@ const Newleter = () => {
                         <div className=' w-full md:w-5/12 md:ml-[40%]  text-center  space-y-3  py-3'>
                             <h2 className='text-[#173F5F] font-bold text-3xl'>New Release Books</h2>
                             <p className='text-[#393280be] leading-6 '>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sunt officia quae assumenda quibusdam sint nemo harum ea</p>
-                            <button className=' btn  btn-outline'>Read more <span><FaLongArrowAltRight /></span></button>
+                            <Link to="/books" className=' btn  btn-outline'>Read more <span><FaLongArrowAltRight /></span></Link>
                         </div>
                     </div>
                     <div className=" w-full md:w-4/12">

@@ -1,8 +1,8 @@
-import './article.css'
-import { FaFacebookF , FaInstagram, FaLinkedin , FaLongArrowAltRight  } from "react-icons/fa";
-import girlOne from './../../assets/img/articla1.png'
-import girlTwo from './../../assets/img/articla2.png'
-import girlThree from './../../assets/img/articla3.png'
+import { FaFacebookF, FaInstagram, FaLinkedin, FaLongArrowAltRight } from "react-icons/fa";
+import girlOne from './../../assets/img/articla1.png';
+import girlTwo from './../../assets/img/articla2.png';
+import girlThree from './../../assets/img/articla3.png';
+import './article.css';
 const Article = () => {
     return (
         <div className=" container mx-auto py-9 px-[2%] ">
