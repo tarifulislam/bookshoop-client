@@ -1,3 +1,4 @@
+
 export const filterUserInfo = (userData) => {
   const { email, role, ...basicInfo } = userData;
   let userDetails = { ...basicInfo };

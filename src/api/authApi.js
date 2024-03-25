@@ -9,7 +9,7 @@ export const authApi = {
     }),
   signup: async (userData) =>
     axiosBaseQuery({
-      url: "/auth/signup",
+      url: "/users/signup",
       method: "POST",
       data: userData,
     }),
