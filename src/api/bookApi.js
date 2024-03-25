@@ -6,7 +6,12 @@ export const bookApi = {
       url: `/books/new`,
       method: 'GET'
     }),
-    getAllBooks: async () =>
+    getFeaturedBook: async () =>
+    axiosBaseQuery({
+      url: `/books/featured`,
+      method: 'GET'
+    }),
+  getAllBooks: async () =>
     axiosBaseQuery({
       url: `/books`,
       method: 'GET'

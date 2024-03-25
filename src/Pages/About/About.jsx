@@ -67,7 +67,7 @@ const About = () => {
                     <div className="card card-side bg-base-100 shadow-xl">
                         <figure className="max-w-60 w-full h-full"><img className="w-full h-full" src="https://i.ibb.co/XXRjhST/JUBLI.png" alt="Movie" /></figure>
                         <div className="card-body">
-                            <h2 className="card-title">Jubly Rahman</h2>
+                            <h2 className="card-title">Jubli Rahman</h2>
                             <p>Click the button to watch on Jetflix app.</p>
                             <div className="card-actions justify-end">
                                 <button className="btn ">View Profile</button>
@@ -87,7 +87,7 @@ const About = () => {
                     <div className="card card-side bg-base-100 shadow-xl">
                         <figure className="max-w-60 w-full h-full"><img className="w-full h-full" src="https://i.ibb.co/vZ9jrfX/Whats-App-Image-2024-03-24-at-11-13-05-7c736ecc.jpg" alt="Movie" /></figure>
                         <div className="card-body">
-                            <h2 className="card-title">Prity Rose</h2>
+                            <h2 className="card-title">Sultana Kamrunnahar</h2>
                             <p>Click the button to watch on Jetflix app.</p>
                             <div className="card-actions justify-end">
                                 <button className="btn ">View Profile</button>

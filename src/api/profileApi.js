@@ -2,7 +2,7 @@ import { axiosBaseQuery } from '../helpers/axios/baseQuery';
 
 export const profileApi = {
 
-    GetUserInfoByUsername : async (username) =>
+  GetUserInfoByUsername: async (username) =>
     axiosBaseQuery({
       url: `/users/${username}`,
       method: 'GET'
@@ -15,7 +15,7 @@ export const profileApi = {
       data: operationData
     }),
 
-    FollowOperation: async (operationData) =>
+  FollowOperation: async (operationData) =>
     axiosBaseQuery({
       url: `/profile/set/follow`,
       method: 'POST',

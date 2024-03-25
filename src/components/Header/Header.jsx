@@ -26,7 +26,7 @@ const Header = () => {
         <NavLink className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "  pb-1 border-b  border-white  font-semibold" : ""} to="/blog">BLOG</NavLink>
         {
             isLoggedIn ? (
-                <button type="button" onClick={handleLogoutButton} className="border-b  border-transparent">
+                <button type="button" onClick={handleLogoutButton} className="border-b  border-transparent font-semibold pb-1">
                     LOGOUT
                 </button>
             ) : (
@@ -73,8 +73,8 @@ const Header = () => {
                             <div className="w-3/12 flex items-center">
                                 <div className="dropdown dropdown-bottom">
                                     <div tabIndex={0} role="button" className="btn btn-ghost m-1">
-                                        <img className="w-12 h-12 rounded-full" src={userDetails ? userDetails?.information.profileImage : logo} alt="avatar" />
-                                        <p className="ml-2 font-semibold capitalize">{userDetails ? `${userDetails.name.firstName} ${userDetails.name.lastName}` : ''}</p>
+                                        <img className="w-12 h-12 rounded-full" src={userDetails ? userDetails?.profileImage : logo} alt="avatar" />
+                                        <p className="ml-2 font-semibold capitalize">{userDetails ? `${userDetails.firstName} ${userDetails.lastName}` : ''}</p>
                                     </div>
                                     {
                                         isLoggedIn ? <>
