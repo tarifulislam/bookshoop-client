@@ -1,4 +1,9 @@
 import { Route, Routes } from "react-router-dom";
+import DashLayout from "../Dashboard/DashLayout/DashLayout";
+import DashAddProduct from "../Dashboard/Pages/DashAddProduct/DashAddProduct";
+import DashHome from "../Dashboard/Pages/DashHome/DashHome";
+import DashProducts from "../Dashboard/Pages/DashProducts/DashProducts";
+import DashUsers from "../Dashboard/Pages/DashUsers/DashUsers";
 import Layout from '../Layout/Layout';
 import BookSingle from "../Pages/BookSingle/BookSingle";
 import Error from "../Pages/Error/Error";
@@ -10,6 +15,7 @@ import Blog from './../Pages/Blog/Blog';
 import Books from './../Pages/Books/Books';
 import Contract from './../Pages/Contract/Contract';
 import Home from './../Pages/Home/Home';
+
 const AppRouter = () => {
 
   return (
@@ -18,6 +24,12 @@ const AppRouter = () => {
         path="/"
         element={<Layout />}
       >
+        <Route  element={<DashLayout />}>
+          <Route path="/dashboard" element={<DashHome />} />
+          <Route path="/dashproducts" element={<DashProducts />} />
+          <Route path="/dashusers" element={<DashUsers />} />
+          <Route path="/dashaddproduct" element={<DashAddProduct />} />
+        </Route> 
         <Route path="/signin" element={<SignIn />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/" element={<Home />} />

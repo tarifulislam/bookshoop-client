@@ -10,6 +10,7 @@ const ReleseBooks = () => {
             try {
                 const response = await bookApi.getAllBooks();
                 setBooks(response?.data?.data);
+                console.log(response);
             } catch (error) {
                 console.error('Error fetching new release books:', error);
             }

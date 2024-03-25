@@ -1,8 +1,14 @@
+import Footer from "../../components/Footer/Footer";
+import Header from "../../components/Header/Header";
 
 const Blog = () => {
     return (
-        <div className=" container mx-auto min-h-screen">
-            Blog
+        <div>
+            <Header></Header>
+            <div className=" container mx-auto min-h-screen">
+                Blog
+            </div>
+            <Footer></Footer>
         </div>
     );
 };

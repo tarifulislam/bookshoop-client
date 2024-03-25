@@ -74,7 +74,7 @@ const Header = () => {
                                 <div className="dropdown dropdown-bottom">
                                     <div tabIndex={0} role="button" className="btn btn-ghost m-1">
                                         <img className="w-12 h-12 rounded-full" src={userDetails ? userDetails?.profileImage : logo} alt="avatar" />
-                                        <p className="ml-2 font-semibold capitalize">{userDetails ? `${userDetails.firstName} ${userDetails.lastName}` : ''}</p>
+                                        <Link to='/' className="ml-2 font-semibold">{userDetails ? `${userDetails?.firstName} ${userDetails?.lastName}` : ''}</Link>
                                     </div>
                                     {
                                         isLoggedIn ? <>
