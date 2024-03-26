@@ -4,7 +4,9 @@ import { IoEllipseOutline, IoEllipseSharp } from "react-icons/io5";
 import bookApi from "../../api/bookApi";
 import { BookCard } from "../UI/BookCard/BookCard";
 const ReleseBooks = () => {
+
     const [books, setBooks] = useState([]);
+
     useEffect(() => {
         const fetchBooks = async () => {
             try {
@@ -18,6 +20,8 @@ const ReleseBooks = () => {
 
         fetchBooks();
     }, []);
+
+    
     return (
         <div className=' border-b-2 px-[2%]'>
             <div className=" container mx-auto py-9">
@@ -27,9 +31,13 @@ const ReleseBooks = () => {
                     <p className=' text-[#ED553B]'>View all products</p>
                 </div>
                 <div className=' grid grid-col md:grid-cols-4 gap-6 py-7'>
-                    {books.slice(0, 4).map(book => (
+
+                    {books?.slice(0, 4)?.map(book => (
                         <BookCard key={book._id} book={book} />
                     ))}
+
+    
+
                 </div>
                 <div className=' flex justify-center'>
                     <div className='flex space-x-1 pt-3'>

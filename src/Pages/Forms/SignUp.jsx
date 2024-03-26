@@ -56,6 +56,7 @@ const SignUp = () => {
                         <div className="w-full md:w-3/4 p-12 rounded-md border mx-auto">
                             <h1 className="text-4xl font-bold py-6 text-center">Sign Up</h1>
 
+
                             <form className=" space-y-3" onSubmit={handleSubmit}>
                                 <div className="form-control">
                                     <label className="label font-bold">
@@ -78,6 +79,7 @@ const SignUp = () => {
                                                 <input type="radio" name="role" className="radio radio-success" aria-label="Seller" value="Seller" onChange={handleChange} required />
                                             </div>
                                         </div>
+
                                         <div className="form-control">
                                             <label className="label font-bold">
                                                 <span className="label-text">Donar</span>
@@ -199,6 +201,8 @@ const SignUp = () => {
                                     <button type="submit" className="btn btn-success text-white">Sign in</button>
                                 </div>
                             </form>
+
+
                             <SocialLogin></SocialLogin>
                             <h4 className=" py-3 font-semibold text-base">Have an account? <Link to='/signin' className=" text-red-600 px-1">log In</Link> </h4>
                         </div>
