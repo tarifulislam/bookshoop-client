@@ -3,7 +3,7 @@ import Footer from "../Footer/Footer";
 import Header from "../Header/Header";
 
 const Profile = () => {
-  const { userDetails } = useAuth();
+  const { userInfo } = useAuth();
   return (
     <div className="">
       <Header />
@@ -13,19 +13,24 @@ const Profile = () => {
             <div className="flex justify-center">
               <img
                 className="w-32 h-32 rounded-full object-cover"
-                src={userDetails?.information?.profileImage}
-                alt={userDetails?.name?.firstName}
+                src={userInfo?.profileImage}
+                alt={userInfo?.firstName}
               />
             </div>
-            <h2 className="mt-4 text-3xl font-semibold text-center capitalize">{userDetails?.name?.firstName}</h2>
-            <p className="mt-2 text-sm text-gray-600 text-center">{userDetails?.email}</p>
+            <h2 className="mt-4 text-3xl font-semibold text-center capitalize">{`${userInfo?.firstName} ${userInfo?.lastName}`}</h2>
+            <p className="mt-2 text-sm text-gray-600 text-center">{userInfo?.email}</p>
             <div className="mt-2">
-              <p className="mt-2 text-gray-600 text-center font-semibold">{userDetails?.information?.bio}</p>
+              <p className="mt-2 text-gray-600 text-center max-w-md mx-auto pb-4">{userInfo?.bio}</p>
+            </div>
+            <div>
+
             </div>
             <div className="mt-2">
-              <h3 className="text-xl font-semibold">{userDetails?.city}</h3>
               <p className="mt-2 text-gray-600 text-center">
-                {userDetails?.information?.address}, {userDetails?.information?.city}, {userDetails?.information?.state}, {userDetails?.information?.zipCode}
+                {userInfo?.address},
+              </p>
+              <p className="mt-2 text-gray-600 text-center">
+                {userInfo?.city}, / {userInfo?.state}, / {userInfo?.zipCode}
               </p>
             </div>
           </div>

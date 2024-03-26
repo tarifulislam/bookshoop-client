@@ -1,10 +1,11 @@
+import { Link } from "react-router-dom";
 
 const DashNavber = () => {
     return (
         <div className="bg-[#262E3B] text-white">
             <div className="navbar px-[1%] ">
             <div className="flex-1">
-                <a className="text-xl font-bold">Book Shop</a>
+                <Link to="/" className="text-xl font-bold">Book Shop</Link>
             </div>
             <div className="flex-none">
                 <div className="dropdown dropdown-end">

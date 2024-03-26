@@ -17,7 +17,7 @@ const BookCardTwo = ({ bookItem }) => {
         <h4 className="font-semibold">{bookItem?.price}Tk</h4>
         <h4>{bookItem?.inStock} In Stock</h4>
         <div className="card-actions pt-6">
-          <Link to={`/books/${bookItem?._id}`} className="btn btn-success text-white">View Details</Link>
+          <Link to={`/book/${bookItem?._id}`} className="btn btn-success text-white">View Details</Link>
           <button type="button" className="btn btn-success text-white">Add To Card</button>
         </div>
       </div>
