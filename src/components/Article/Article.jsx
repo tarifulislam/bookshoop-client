@@ -1,4 +1,5 @@
 import { FaFacebookF, FaInstagram, FaLinkedin, FaLongArrowAltRight } from "react-icons/fa";
+import { Link } from "react-router-dom";
 import girlOne from './../../assets/img/articla1.png';
 import girlTwo from './../../assets/img/articla2.png';
 import girlThree from './../../assets/img/articla3.png';
@@ -19,7 +20,7 @@ const Article = () => {
                 </div>
             </div>
 
-            <div className=' grid grid-col md:grid-cols-3 gap-6'>
+            <div className='grid grid-col md:grid-cols-3 gap-6'>
                 
                 <div className=' w-full'>
                     <img className=' w-full' src={girlOne} alt="" />
@@ -64,7 +65,7 @@ const Article = () => {
                 </div>
             </div>
             <div className=' text-center py-6'>
-            <button className=' btn  btn-outline'>Read all articles <span><FaLongArrowAltRight /></span></button>
+            <Link to="/blog" className=' btn  btn-outline'>Read all articles <span><FaLongArrowAltRight /></span></Link>
             </div>
              
         </div>

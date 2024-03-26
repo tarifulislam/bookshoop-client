@@ -20,6 +20,7 @@ const SignUp = () => {
             [name]: value,
         });
     };
+    
     const handleSubmit = async (e) => {
         e.preventDefault();
 
@@ -67,7 +68,7 @@ const SignUp = () => {
                                                 <span className="label-text">Customer</span>
                                             </label>
                                             <div className="text-center">
-                                                <input type="radio" name="role" className="radio radio-success" aria-label="Seller" value="Customer" onChange={handleChange} required />
+                                                <input type="radio" name="role" className="radio radio-success" aria-label="general" value="general" onChange={handleChange} required />
                                             </div>
                                         </div>
                                         <div className="form-control">
@@ -75,7 +76,7 @@ const SignUp = () => {
                                                 <span className="label-text">Seller</span>
                                             </label>
                                             <div className="text-center">
-                                                <input type="radio" name="role" className="radio radio-success" aria-label="Seller" value="Seller" onChange={handleChange} required />
+                                                <input type="radio" name="role" className="radio radio-success" aria-label="seller" value="seller" onChange={handleChange} required />
                                             </div>
                                         </div>
                                         <div className="form-control">
@@ -83,7 +84,7 @@ const SignUp = () => {
                                                 <span className="label-text">Donar</span>
                                             </label>
                                             <div className="text-center">
-                                                <input type="radio" name="role" className="radio radio-success" aria-label="Donar" value="Donar" onChange={handleChange} required />
+                                                <input type="radio" name="role" className="radio radio-success" aria-label="donar" value="donar" onChange={handleChange} required />
                                             </div>
                                         </div>
                                     </div>

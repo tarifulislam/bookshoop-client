@@ -5,13 +5,13 @@ import DashHome from "../Dashboard/Pages/DashHome/DashHome";
 import DashProducts from "../Dashboard/Pages/DashProducts/DashProducts";
 import DashUsers from "../Dashboard/Pages/DashUsers/DashUsers";
 import Layout from '../Layout/Layout';
+import Blogs from "../Pages/Blog/Blogs";
 import BookSingle from "../Pages/BookSingle/BookSingle";
-import Error from "../Pages/Error/Error";
 import SignIn from "../Pages/Forms/SignIn";
 import SignUp from "../Pages/Forms/SignUp";
+import NotFound from "../Pages/NotFound/NotFound";
 import Profile from "../components/Profile/Profile";
 import About from './../Pages/About/About';
-import Blog from './../Pages/Blog/Blog';
 import Books from './../Pages/Books/Books';
 import Contract from './../Pages/Contract/Contract';
 import Home from './../Pages/Home/Home';
@@ -35,11 +35,11 @@ const AppRouter = () => {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/books" element={<Books />} />
-        <Route path="/books/:id" element={<BookSingle />} />
+        <Route path="/book/:id" element={<BookSingle />} />
         <Route path="/contract" element={<Contract />} />
-        <Route path="/blog" element={<Blog />} />
+        <Route path="/blogs" element={<Blogs />} />
         <Route path="/profile" element={<Profile />} />
-        <Route path="*" element={<Error />} />
+        <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>
   );

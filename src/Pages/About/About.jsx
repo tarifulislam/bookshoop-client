@@ -37,7 +37,7 @@ const About = () => {
                     <div className="grid grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-10">
                         {/* Team member card 1 */}
                         <div className="card card-side bg-base-100 shadow-xl">
-                            <figure className="max-w-60 w-full h-full"><img className="w-full h-full" src="https://i.ibb.co/vLnjdtx/20240308-195108.jpg" alt="Movie" /></figure>
+                            <figure className="max-w-60 w-full h-full"><img className="w-full h-full" src="https://i.ibb.co/2sqRVMm/profile.png" alt="Movie" /></figure>
                             <div className="card-body">
                                 <h2 className="card-title">Maker Shihab</h2>
                                 <p>Click the button to watch on Jetflix app.</p>

@@ -1,6 +1,7 @@
 
 import { useEffect, useState } from "react";
 import { IoEllipseOutline, IoEllipseSharp } from "react-icons/io5";
+import { Link } from "react-router-dom";
 import bookApi from "../../api/bookApi";
 import { BookCard } from "../UI/BookCard/BookCard";
 const ReleseBooks = () => {
@@ -10,7 +11,6 @@ const ReleseBooks = () => {
             try {
                 const response = await bookApi.getAllBooks();
                 setBooks(response?.data?.data);
-                console.log(response);
             } catch (error) {
                 console.error('Error fetching new release books:', error);
             }
@@ -19,14 +19,14 @@ const ReleseBooks = () => {
         fetchBooks();
     }, []);
     return (
-        <div className=' border-b-2 px-[2%]'>
+        <div className=' border-b-2 px-[2%] py-10'>
             <div className=" container mx-auto py-9">
-                <div className=" text-center space-y-3">
+                <div className=" text-center space-y-3 pb-10">
                     <h2 className='text-[#173F5F] font-bold text-3xl'>New Release Books</h2>
                     <p className=' text-[#6a6a6abb]'>1000+ books are published by different authors everyday. </p>
-                    <p className=' text-[#ED553B]'>View all products</p>
+                    <Link to="/books" className='block text-[#ED553B]'>View all products</Link>
                 </div>
-                <div className=' grid grid-col md:grid-cols-4 gap-6 py-7'>
+                <div className='grid grid-col md:grid-cols-4 gap-6 py-10'>
                     {books.slice(0, 4).map(book => (
                         <BookCard key={book._id} book={book} />
                     ))}

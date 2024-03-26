@@ -11,8 +11,8 @@ import logo from '../../assets/img/avater.png';
 import useAuth from "../../hooks/useAuth";
 
 const Header = () => {
-    const { userDetails, isLoggedIn, handleLogout } = useAuth();
-    const navigate = useNavigate()
+    const { userInfo, isLoggedIn, handleLogout } = useAuth();
+    const navigate = useNavigate();
     const handleLogoutButton = () => {
         handleLogout();
         navigate('/signin');
@@ -23,7 +23,7 @@ const Header = () => {
         <NavLink className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "  pb-1 border-b  border-white  font-semibold" : ""} to="/about">ABOUT US</NavLink>
         <NavLink className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "  pb-1 border-b  border-white  font-semibold" : ""} to="/books">BOOKS</NavLink>
         <NavLink className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "  pb-1 border-b  border-white  font-semibold" : ""} to="/contract">CONTRACT US</NavLink>
-        <NavLink className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "  pb-1 border-b  border-white  font-semibold" : ""} to="/blog">BLOG</NavLink>
+        <NavLink className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "  pb-1 border-b  border-white  font-semibold" : ""} to="/blogs">BLOG</NavLink>
         {
             isLoggedIn ? (
                 <button type="button" onClick={handleLogoutButton} className="border-b  border-transparent font-semibold pb-1">
@@ -73,8 +73,8 @@ const Header = () => {
                             <div className="w-3/12 flex items-center">
                                 <div className="dropdown dropdown-bottom">
                                     <div tabIndex={0} role="button" className="btn btn-ghost m-1">
-                                        <img className="w-12 h-12 rounded-full" src={userDetails ? userDetails?.profileImage : logo} alt="avatar" />
-                                        <p className="ml-2 font-semibold">{userDetails ? `${userDetails?.firstName} ${userDetails?.lastName}` : ''}</p>
+                                        <img className="w-12 h-12 rounded-full" src={userInfo ? userInfo?.profileImage : logo} alt="avatar" />
+                                        <p className="ml-2 font-semibold">{userInfo ? `${userInfo?.firstName} ${userInfo?.lastName}` : ''}</p>
                                     </div>
                                     {
                                         isLoggedIn ? <>
