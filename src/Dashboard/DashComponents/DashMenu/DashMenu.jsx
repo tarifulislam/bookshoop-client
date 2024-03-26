@@ -1,45 +1,58 @@
-import PropTypes from 'prop-types';
-import { donorMenu, generalUserMenu, sellerMenu } from '../../../data/data';
+import { FaHome, FaRegUser, FaUsers } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
-const DashMenu = ({ role }) => {
-    let menuItems;
-    if (role === 'general') {
-        menuItems = generalUserMenu;
-    } else if (role === 'donor') {
-        menuItems = donorMenu;
-    } else if (role === 'seller') {
-        menuItems = sellerMenu;
-    }
+const DashMenu = () => {
     return (
         <div className=" space-y-6 min-h-screen">
-            <div>
-                <ul className="menu rounded-box">
-                    {menuItems.menuItems.map((menuItem, index) => (
-                        <li key={index}>
-                            {!menuItem.subItems ? (
-                                <a href={menuItem.link}>{menuItem.name}</a>
-                            ) : (
-                                <details>
-                                    <summary>{menuItem.name}</summary>
-                                    <ul>
-                                        {menuItem.subItems.map((subItem, subIndex) => (
-                                            <li key={subIndex}>
-                                                <a href={subItem.link}>{subItem.name}</a>
-                                            </li>
-                                        ))}
-                                    </ul>
-                                </details>
-                            )}
-                        </li>
-                    ))}
-                </ul>
+            <div className="">
+                <span>Main</span>
+                <Link to='/dashboard' className="  flex gap-3 items-center p-2">
+                    <span><FaHome /></span>
+                    <span>Home</span>
+                </Link>
+
+                <Link className="  flex gap-3 items-center p-2">
+                    <span><FaRegUser /></span>
+                    <span>Profile</span>
+                </Link>
+            </div>
+            <div className="">
+                <span>Genarel</span>
+                <Link className="  flex gap-3 items-center p-2">
+                    <span><FaUsers /></span>
+                    <span>User</span>
+                </Link>
+
+                <Link to='/dashaddproduct' className="  flex gap-3 items-center p-2">
+                    <span><FaRegUser /></span>
+                    <span>Product</span>
+                </Link>
+
+                <Link className="  flex gap-3 items-center p-2">
+                    <span><FaRegUser /></span>
+                    <span>Order</span>
+                </Link>
+
+                <Link className="  flex gap-3 items-center p-2">
+                    <span><FaRegUser /></span>
+                    <span>Post</span>
+                </Link>
+            </div>
+            <div className="">
+                <span>Analeytics</span>
+                <Link className="  flex gap-3 items-center p-2">
+                    <span><FaHome /></span>
+                    <span>Charts</span>
+                </Link>
+
+                <Link className="  flex gap-3 items-center p-2">
+                    <span><FaRegUser /></span>
+                    <span>logs</span>
+                </Link>
             </div>
 
         </div>
     );
 };
 
-DashMenu.propTypes = {
-    role: PropTypes.oneOf(['general', 'donor', 'seller']).isRequired,
-};
 export default DashMenu;
